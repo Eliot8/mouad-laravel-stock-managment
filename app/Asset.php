@@ -37,4 +37,21 @@ class Asset extends Model
     {
         return $this->hasMany(Transaction::class, 'asset_id');
     }
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class, 'asset_id');
+    }
+
+    public function delete()
+    {
+        $this->stocks->each(function ($stock) {
+            $stock->delete();
+        });
+
+        $this->transactions->each(function ($transaction) {
+            $transaction->delete();
+        });
+
+        return parent::delete();
+    }
 }

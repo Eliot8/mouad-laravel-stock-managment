@@ -71,7 +71,12 @@ class AssetsController extends Controller
 
     public function massDestroy(MassDestroyAssetRequest $request)
     {
-        Asset::whereIn('id', request('ids'))->delete();
+        // Asset::whereIn('id', request('ids'))->delete();
+        $assets = Asset::whereIn('id', request('ids'))->get();
+        $assets->each(function ($asset) {
+            $asset->delete();
+        });
+
 
         return response(null, Response::HTTP_NO_CONTENT);
 
