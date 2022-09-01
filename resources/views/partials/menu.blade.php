@@ -11,7 +11,7 @@
                         {{ trans('cruds.userManagement.title') }}
                     </a>
                     <ul class="nav-dropdown-items">
-                        @can('permission_access')
+                        {{-- @can('permission_access')
                             <li class="nav-item">
                                 <a href="{{ route("admin.permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
                                     <i class="fa-fw fas fa-unlock-alt nav-icon">
@@ -20,8 +20,8 @@
                                     {{ trans('cruds.permission.title') }}
                                 </a>
                             </li>
-                        @endcan
-                        @can('role_access')
+                        @endcan --}}
+                        {{-- @can('role_access')
                             <li class="nav-item">
                                 <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
                                     <i class="fa-fw fas fa-briefcase nav-icon">
@@ -30,7 +30,7 @@
                                     {{ trans('cruds.role.title') }}
                                 </a>
                             </li>
-                        @endcan
+                        @endcan --}}
                         @can('user_access')
                             <li class="nav-item">
                                 <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
@@ -74,7 +74,7 @@
                     </a>
                 </li>
             @endcan
-            @can('transaction_access')
+            {{-- @can('transaction_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.transactions.index") }}" class="nav-link {{ request()->is('admin/transactions') || request()->is('admin/transactions/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-cogs nav-icon">
@@ -94,7 +94,7 @@
                         </a>
                     </li>
                 @endcan
-            @endif
+            @endif --}}
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">
